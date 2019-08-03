@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"name": "temp-demo",
+			"path": "."
+		},
+		{
+			"name": "now-cdn",
+			"path": "/Users/cliff/git/now-cdn"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#093519",
+			"titleBar.activeBackground": "#0C4A23",
+			"titleBar.activeForeground": "#F3FDF7"
+		}
+	}
+}

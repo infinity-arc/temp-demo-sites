@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vanilla</title>
+    <link id="styleLink" rel="stylesheet" href="" />
+    <link rel="icon" href="https://ia-own-webassets.c1i44.now.sh/IA_shortlogo_white_blackbg-01x.png" type="img/png">
+
+</head>
+
+<body>
+    <h1>Welcome to a Static Site</h1>
+    <h2>
+        Deployed with
+        <a href="./https://zeit.co/docs" target="_blank" rel="noreferrer noopener">ZEIT Now</a>
+    </h2>
+    <p>
+        <a href="https://github.com/zeit/now-examples/blob/master/go" target="_blank" rel="noreferrer noopener">This project</a
+      >
+      includes two files. A static <code>index.html</code> file as the homepage,
+      and a <code>style.css</code> file for styling.
+    </p>
+    <div>
+      <img id="svgDiagram" src="" alt="graph"/>
+    </div>
+    <div id="content"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> 
+    <script>
+      document.getElementById('content').innerHTML = marked('# Marked in the browser\n\nRendered by **marked**.');
+    </script>
+        <script>
+            var styleLink = document.getElementById('styleLink');
+            var svgDiagram = document.getElementById('svgDiagram');
+            var url = {
+              style: 'http://localhost:3001/style.css',
+              img: 'http://localhost:3001/Em-backups.svg',
+            };
+            var mode = "dev"
+            if(mode==='dev'){
+              styleLink.setAttribute('href',url.style);
+              svgDiagram.setAttribute('src',url.img);
+            }
+                console.log('document has loaded');
+                console.log('styleLink: ', styleLink);
+                console.log('svgDiagram: ', svgDiagram);
+            
+        </script>
+</body>
+
+</html>
