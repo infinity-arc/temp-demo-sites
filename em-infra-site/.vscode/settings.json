@@ -3,5 +3,9 @@
         "activityBar.background": "#2F2363",
         "titleBar.activeBackground": "#42318A",
         "titleBar.activeForeground": "#FBFAFD"
+    },
+    "files.associations": {
+        "*.js": "javascript",
+        "*.html": "html"
     }
 }
