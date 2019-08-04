@@ -14,6 +14,20 @@
 			"activityBar.background": "#093519",
 			"titleBar.activeBackground": "#0C4A23",
 			"titleBar.activeForeground": "#F3FDF7"
+		},
+		"cSpell.words": [
+			"onsitenew"
+		],
+		"[html]": {
+			"editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
+		},
+		"[javascript]": {
+			"editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
+		},
+		"[markdown]": {
+			"editor.formatOnSave": true,
+			"editor.defaultFormatter": "TomasHubelbauer.vscode-markdown-table-format"
+			
 		}
 	}
 }

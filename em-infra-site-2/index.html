@@ -4,7 +4,7 @@
 <head>
     <title>Vanilla</title>
     <link id="styleLink" rel="stylesheet" href="" />
-    <link rel="icon" href="https://ia-own-webassets.c1i44.now.sh/IA_shortlogo_white_blackbg-01x.png" type="img/png">
+    <link rel="icon" href="favicon.ico" type="img/ico">
 </head>
 
 <body>
@@ -15,10 +15,10 @@
     <h2>
 
         <div class="inline-images-container">
-            <a href="./https://zeit.co/docs" target="_blank" rel="noreferrer noopener">
+            <a href="https://aws.amazon.com/" target="_blank" rel="noreferrer noopener">
                 <img src="https://aws-ia-webassets.c1i44.now.sh/pR-1qA0D_400x400%400%2C33x.jpg" alt="AWS Logo">
             </a>
-            <a href="./https://zeit.co/docs" target="_blank" rel="noreferrer noopener">
+            <a href="http://infinityarc.net/" target="_blank" rel="noreferrer noopener">
                 <img src="https://ia-own-webassets.now.sh/IA_shortlogo_white_blackbg-025x.png" alt="IA Logo">
             </a>
         </div>
@@ -37,34 +37,103 @@
     <div>
         <img id="svgDiagram" src="" alt="graph" />
     </div>
+    <div class="content-container">
+        <div class="content" id="content-part1"></div>
+        <div class="content" id="content-part2"></div>
+        <div class="content" id="content-part3"></div>
+        <div class="content" id="content-part4"></div>
+        <div class="content" id="content-part5"></div>
+        <div class="content" id="content-part6"></div>
+        <div class="content" id="content-part7"></div>
+        <div class="content" id="content-part8"></div>
+        <div class="content" id="content-part9"></div>
+        <div class="content" id="content-part10"></div>
 
-    <div id="content"></div>
+        <div class="content" id="content-part_"></div>
+    </div>
     <script>
+        var mode = "dev"
+        var origin = mode === 'dev' ? 'http://localhost:3001' : "?"
         var styleLink = document.getElementById('styleLink');
         var svgDiagram = document.getElementById('svgDiagram');
-        var content = document.getElementById('content');
+
         var url = {
-            style: 'http://localhost:3001/style.css',
-            img: 'http://localhost:3001/Em-backups.svg',
+            style: origin + '/style.css',
+            img: origin + '/Em-backups.svg',
+            onsitenew: origin + '/png/onsitenew-recources.png'
         };
-        var mode = "dev"
+
         if (mode === 'dev') {
             styleLink.setAttribute('href', url.style);
             svgDiagram.setAttribute('src', url.img);
         }
 
-        function getMarkDown() {
+        function getMarkDown(route) {
             return new Promise(async(resolve, reject) => {
                 console.log('Running fetch');
-                const url = 'http://172.16.0.151:3000'
-                const response = await fetch(url + '/mdsheet').then(res => res.text()).catch(err => console.error(err));
+                const url = mode === 'dev' ? 'http://172.16.0.151:3000' : '?'
+                const response = await fetch(`${url}${route}`).then(res => res.text()).catch(err => console.error(err));
                 return resolve(response);
-
             });
         }
-        getMarkDown().then(html => content.innerHTML = html);
 
-        console.log('getMarkDown();: ', getMarkDown());
+        // function insertMdContent(...params) {
+        //     const params = [...params];
+        //     console.log('params: ', params);
+        //     const appendEl = document.createElement('div');
+
+
+        // }
+
+        var contentPart1 = document.getElementById('content-part1');
+        getMarkDown('/mdsheet-intro').then(html => contentPart1.innerHTML = html);
+
+        var contentPart2 = document.getElementById('content-part2');
+        getMarkDown('/mdsheet-ccp1').then(html => contentPart2.innerHTML = html);
+
+        var contentPart3 = document.getElementById('content-part3');
+        contentPart3.classList.add('component-image');
+        getMarkDown('/mdsheet-sc').then(html => contentPart3.innerHTML = html);
+
+        var contentPart4 = document.getElementById('content-part4');
+        contentPart4.classList.add('component-image');
+        getMarkDown('/mdsheet-vpc').then(html => contentPart4.innerHTML = html);
+
+        var contentPart5 = document.getElementById('content-part5');
+        contentPart5.classList.add('component-image');
+        getMarkDown('/mdsheet-s3').then(html => contentPart5.innerHTML = html);
+
+        var contentPart6 = document.getElementById('content-part6');
+        contentPart6.classList.add('component-image');
+        getMarkDown('/mdsheet-ns').then(html => contentPart6.innerHTML = html);
+
+        var contentPart7 = document.getElementById('content-part7');
+        contentPart7.classList.add('component-image');
+        getMarkDown('/mdsheet-im').then(html => contentPart7.innerHTML = html);
+
+        var contentPart8 = document.getElementById('content-part8');
+        contentPart8.classList.add('component-image');
+        getMarkDown('/mdsheet-mc').then(html => contentPart8.innerHTML = html);
+
+        var contentPart9 = document.getElementById('content-part9');
+        contentPart9.classList.add('component-image');
+        getMarkDown('/mdsheet-cred').then(html => contentPart9.innerHTML = html);
+
+        var contentPart10 = document.getElementById('content-part10');
+        contentPart10.classList.add('component-image');
+        getMarkDown('/mdsheet-cc').then(html => contentPart10.innerHTML = html);
+
+        var contentPart11 = document.getElementById('content-part11');
+        getMarkDown('/mdsheet-sd').then(html => contentPart11.innerHTML = html);
+
+
+
+        var contentPart_ = document.getElementById('content-part_');
+        getMarkDown('/mdsheet-tail').then(html => contentPart_.innerHTML = html);
+
+
+
+        //console.log('getMarkDown();: ', getMarkDown());
     </script>
 </body>
 
