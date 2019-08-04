@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "alias": "em-proposal-site",
+    "name": "proposal",
+    "builds": [
+        { "src": "./*.*", "use": "@now/static" }
+    ]
+
+}

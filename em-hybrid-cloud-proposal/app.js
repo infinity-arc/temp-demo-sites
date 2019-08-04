@@ -13,6 +13,8 @@ md.use(markdownItAttrs, {
     allowedAttributes: [] // empty array = all attributes are allowed
 });
 
+const usePrefix = 'https://now-cdn-demos.c1i44.now.sh'
+
 const seeReqPar = true;
 
 const handleGet = get(async(req, res) => {
@@ -45,8 +47,12 @@ function getResponse(req, res) {
                 return send(res, 200, renderMarkdown('md/_6_credentials.md'));
             case '/mdsheet-cc':
                 return send(res, 200, renderMarkdown('md/_8_cloud-configuration.md'));
-            case '/mdsheet-sd':
-                return send(res, 200, renderMarkdown('md/_7_credentials.md'));
+            case '/mdsheet-sec-ops':
+                return send(res, 200, renderMarkdown('md/_operation-to-security.md'));
+            case '/mdsheet-enc-comp':
+                return send(res, 200, renderMarkdown('md/_encryption-to-compliance.md'));
+            case '/mdsheet-gloss':
+                return send(res, 200, renderMarkdown('md/_glossary-table.md'));
 
 
 

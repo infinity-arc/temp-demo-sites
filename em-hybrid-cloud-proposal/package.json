@@ -5,7 +5,9 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node ./node_modules/.bin/micro-dev -p 3000 app.js"
+        "start-dev": "node ./node_modules/.bin/micro-dev -p 3000 app.js",
+        "start": "micro"
+
     },
     "author": "Cliff Crerar",
     "license": "MIT",
@@ -18,5 +20,8 @@
     },
     "devDependencies": {
         "micro-dev": "^3.0.0"
+    },
+    "env": {
+        "NODE_ENV": "production"
     }
 }
