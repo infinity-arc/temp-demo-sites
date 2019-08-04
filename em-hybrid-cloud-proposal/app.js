@@ -13,9 +13,11 @@ md.use(markdownItAttrs, {
     allowedAttributes: [] // empty array = all attributes are allowed
 });
 
-const usePrefix = 'https://now-cdn-demos.c1i44.now.sh'
+const useUrl = true;
 
-const seeReqPar = true;
+const prefix = useUrl ? 'https://em-proposal.now.sh/' : __dirname
+
+const seeReqPar = false;
 
 const handleGet = get(async(req, res) => {
     seeRequestParams(seeReqPar, req);
@@ -54,8 +56,6 @@ function getResponse(req, res) {
             case '/mdsheet-gloss':
                 return send(res, 200, renderMarkdown('md/_glossary-table.md'));
 
-
-
             case '/mdsheet-tail':
                 return send(res, 200, renderMarkdown('md/_tail-sections.md'));
 
@@ -69,7 +69,7 @@ function getResponse(req, res) {
     }
 }
 
-const renderMarkdown = (file) => md.render(fs.readFileSync(path.join(__dirname, file), 'utf8'));
+const renderMarkdown = (file) => md.render(path.join(prefix, file), 'utf8');
 
 function seeRequestParams(reqPar, req) {
     if (reqPar) {

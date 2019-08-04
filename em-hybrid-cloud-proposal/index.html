@@ -81,7 +81,7 @@
     </footer>
     <script>
         var mode = "prod"
-        var origin = mode === 'dev' ? 'http://localhost:3001' : "https://em-proposal.now.sh"
+        var origin = mode === 'dev' ? 'http://localhost:3001' : "https://now-cdn-demos.c1i44.now.sh"
         var styleLink = document.getElementById('styleLink');
         var svgDiagram = document.getElementById('svgDiagram');
 
@@ -99,8 +99,8 @@
         function getMarkDown(route) {
             return new Promise(async(resolve, reject) => {
                 console.log('Running fetch');
-                const origin = mode === 'dev' ? 'http://172.16.0.151:3000' : 'https://proposal.c1i44.now.sh/md'
-                const response = await fetch(`${url}${route}`).then(res => res.text()).catch(err => console.error(err));
+                const or = mode === 'dev' ? 'http://172.16.0.151:3000' : origin + '/md';
+                const response = await fetch(`${or}${route}`).then(res => res.text()).catch(err => console.error(err));
                 return resolve(response);
             });
         }
