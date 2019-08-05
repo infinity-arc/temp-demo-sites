@@ -3,7 +3,11 @@
     "alias": "em-proposal-site",
     "name": "proposal",
     "builds": [
-        { "src": "./*.*", "use": "@now/static" }
+        { "src": "public/**/**.*", "use": "@now/static" },
+        { "src": "app.js", "use": "@now/node" }
+    ],
+    "routes": [
+        { "src": "/", "dest": "app.js" },
+        { "src": "/img/*", "dest": "public/png/*" }
     ]
-
 }

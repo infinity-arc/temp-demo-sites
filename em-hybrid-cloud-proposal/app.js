@@ -13,13 +13,13 @@ md.use(markdownItAttrs, {
     allowedAttributes: [] // empty array = all attributes are allowed
 });
 
-const useUrl = true;
+const useUrl = false;
 
-const prefix = useUrl ? 'https://em-proposal.now.sh/' : __dirname
+const prefix = useUrl ? 'https://em-proposal.now.sh/' : __dirname + '/public'
 
 //https://now-cdn-demos.c1i44.now.sh/md
 
-const seeReqPar = false;
+const seeReqPar = true;
 
 const handleGet = get(async(req, res) => {
     seeRequestParams(seeReqPar, req);
@@ -71,7 +71,7 @@ function getResponse(req, res) {
     }
 }
 
-const renderMarkdown = (file) => md.render(path.join(prefix, file), 'utf8');
+const renderMarkdown = (file) => md.render(fs.readFileSync(path.join(path.join(prefix, file)), 'utf8'));
 
 function seeRequestParams(reqPar, req) {
     if (reqPar) {
