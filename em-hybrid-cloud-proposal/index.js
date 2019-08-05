@@ -13,21 +13,25 @@ md.use(markdownItAttrs, {
     allowedAttributes: [] // empty array = all attributes are allowed
 });
 
-const useUrl = false;
+const useUrl = true;
 
-const prefix = useUrl ? 'https://em-proposal.now.sh/' : __dirname + '/public'
 
-//https://now-cdn-demos.c1i44.now.sh/md
+// const prefix = useUrl ? 'https://em-proposal.now.sh/' : __dirname + '/public'
+
+// https://now-cdn-demos.c1i44.now.sh/md
 
 const seeReqPar = true;
 
 const handleGet = get(async(req, res) => {
-    seeRequestParams(seeReqPar, req);
+    //seeRequestParams(seeReqPar, req);
     return getResponse(req, res);
 });
 
 function getResponse(req, res) {
+    seeRequestParams(seeReqPar, req);
     try {
+
+        console.log('req.url: ', req.url);
         switch (req.url) {
             case '/':
                 return send(res, 200, fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8'));
@@ -58,9 +62,9 @@ function getResponse(req, res) {
             case '/mdsheet-gloss':
                 return send(res, 200, renderMarkdown('md/_glossary-table.md'));
 
+
             case '/mdsheet-tail':
                 return send(res, 200, renderMarkdown('md/_tail-sections.md'));
-
             case '/favicon.ico':
                 return send(res, 100, 'Fuck the favicon!');
             default:
@@ -71,7 +75,12 @@ function getResponse(req, res) {
     }
 }
 
-const renderMarkdown = (file) => md.render(fs.readFileSync(path.join(path.join(prefix, file)), 'utf8'));
+function renderMarkdown(file) {
+    console.log(__dirname);
+    path.join(__dirname, file);
+    console.log('path.join(__dirname,file);: ', path.join(__dirname, file));
+    return md.render(fs.readFileSync(path.join(__dirname, 'public', file), 'utf8'))
+};
 
 function seeRequestParams(reqPar, req) {
     if (reqPar) {

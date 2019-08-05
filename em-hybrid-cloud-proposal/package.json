@@ -5,8 +5,16 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start-dev": "node ./node_modules/.bin/micro-dev -p 3000 app.js",
-        "start": "micro"
+        "dev": "node ./node_modules/.bin/micro-dev -p 3000 app.js",
+        "build": "micro",
+        "start": "micro",
+        "start-dev": "micro-dev"
+    },
+    "files": [
+        "public/md"
+    ],
+    "bin": {
+        "micro": "./node_modules/.bin"
     },
     "author": "Cliff Crerar",
     "license": "MIT",
@@ -15,12 +23,13 @@
         "markdown-it-attrs": "^3.0.0",
         "micro": "^9.3.4",
         "micro-cors": "^0.1.1",
-        "micro-get": "^0.1.1"
-    },
-    "devDependencies": {
+        "micro-get": "^0.1.1",
         "micro-dev": "^3.0.0"
     },
     "env": {
         "NODE_ENV": "production"
+    },
+    "engines": {
+        "node": ">=8.0.0 <11.0.0"
     }
 }

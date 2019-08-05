@@ -1,13 +1,13 @@
 {
     "version": 2,
-    "alias": "em-proposal-site",
-    "name": "proposal",
+    "alias": "em-proposal",
+    "name": "em-proposal",
     "builds": [
-        { "src": "public/**/**.*", "use": "@now/static" },
-        { "src": "app.js", "use": "@now/node" }
+        { "src": "public/*.*", "use": "@now/static" },
+        { "src": "public/md/*.*", "use": "@now/static" },
+        { "src": "public/png/*.png", "use": "@now/optipng" },
+        { "src": "index.js", "use": "@now/node" }
     ],
-    "routes": [
-        { "src": "/", "dest": "app.js" },
-        { "src": "/img/*", "dest": "public/png/*" }
-    ]
+    "routes": [{ "src": "/(.*)", "dest": "index.js" }, { "src": "./png/(.*)", "dest": "/public/png/(.*)" }],
+    "public": true
 }
