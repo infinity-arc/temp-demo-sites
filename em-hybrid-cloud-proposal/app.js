@@ -17,6 +17,8 @@ const useUrl = true;
 
 const prefix = useUrl ? 'https://em-proposal.now.sh/' : __dirname
 
+//https://now-cdn-demos.c1i44.now.sh/md
+
 const seeReqPar = false;
 
 const handleGet = get(async(req, res) => {
