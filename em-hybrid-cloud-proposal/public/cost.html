@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Proposal</title>
+    <link id="styleLink" rel="stylesheet" href="https://em-proposal-assets.now.sh/public/style.css" />
+    <link rel="icon" href="./favicon.ico" type="img/ico">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Orbitron&display=swap" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145179153-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-145179153-1');
+    </script>
+
+</head>
+
+<body style="min-width: 80vw;">
+    <style>
+        nav div {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            top: 2vh;
+            left: 1vw;
+            text-align: left;
+            z-index: 10000;
+        }
+        
+        .link-text {
+            font-size: 1em;
+            padding: 5px 20px 5px 20px;
+            background: transparent;
+            margin: 5px;
+            border: 2px solid black;
+            color: black;
+            border-radius: 8px;
+        }
+        
+        .link-text:hover {
+            background: black;
+            color: white;
+        }
+    </style>
+    <nav>
+        <!-- <h3>Home</h3> -->
+        <div>
+            <button id="desc" onclick="clickDesc()" class="link-text">Proposal description</button>
+            <button id="cost" onclick="clickCost()" class="link-text">Proposal cost</button>
+            <!-- <button class="link-text">link</button> -->
+        </div>
+    </nav>
+    <h1>Em Hybrid Cloud Cost Estimation</h1>
+    <div id="content">
+
+    </div>
+
+    <script>
+        function clickLink(param) {
+            console.log('ev: ', param);
+            switch (param) {
+                case 'desc':
+                    window.history.back()
+                case 'cost':
+                    location.href = '/cost';
+            }
+        }
+
+        function clickDesc() {
+            return location.href = '/desc';
+        }
+
+        function clickCost() {
+            return location.href = '/cost';
+        }
+
+        function getMarkDown(route) {
+            return new Promise(async(resolve, reject) => {
+                console.log('Running fetch');
+                const response = await fetch(`${route}`).then(res => res.text()).catch(err => console.error(err));
+                return resolve(response);
+            });
+        }
+        var contentPart10 = document.getElementById('content');
+        //contentPart10.classList.add('component-image');
+        getMarkDown('/getcost').then(html => contentPart10.innerHTML = html);
+    </script>
+</body>
+
+</html>

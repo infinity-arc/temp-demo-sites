@@ -1,8 +1,8 @@
 ## Encryption
 
-The standard practice to encrypt data is by using asymmetric encryption. How this works, there are 2 keys used in the encryption process there is 1 private key that must be kept secret and 1 public key. The public key is transmitted with the data across the network but without a copy of hte private key at the destination the data cannot be decrypted. 
+The standard practice to encrypt data is by using asymmetric encryption. How this works, there are 2 keys used in the encryption process, 1 private key that must be kept secret and 1 public key. The public key is transmitted with the data across the network but without a copy of the private key, the data at the destination cannot be decrypted. 
 
-The reason for this and as alluded to a few times already is because the data is transported over a public network which is the internet. If it happens that the packets are sniffed by sniffing software or crawled by search engine crawlers the encrypted data would not have any meaning, even if the public key is acquired by a foreign party. 
+The reason for this, and as alluded to a few times already, is because the data is transported over a public network which is the internet. If it happens that the packets are sniffed by sniffing software or crawled by search engine crawlers the encrypted data would not have any meaning, even if the public key is acquired by a foreign party. 
 
 Usually asymmetric encryption keys must be signed by a SSL (Secure Socket Layer) certificate provided by a registered and trusted authority. This is to ensure that firstly you are who you say you are, and from that point the authority will monitor the activity conducted by the entity and their keys. As soon as any below board activity is detected the authority will revoke a certificate and any connection established will be labeled as **"NOT SECURE"**.
 

@@ -35,10 +35,12 @@ function getResponse(req, res) {
         switch (req.url) {
             case '/':
                 return send(res, 200, fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8'));
+            case '/desc':
+                return send(res, 200, fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8'));
             case '/mdsheet-intro':
-                return send(res, 200, renderMarkdown('md/_solution-desc.md'));
+                return send(res, 200, renderMarkdown('md/1_solution-desc.md'));
             case '/mdsheet-ccp1':
-                return send(res, 200, renderMarkdown('md/_cloud-components-intro.md'));
+                return send(res, 200, renderMarkdown('md/2_cloud-components-intro.md'));
             case '/mdsheet-sc':
                 return send(res, 200, renderMarkdown('md/_1_secure-connection.md'));
             case '/mdsheet-vpc':
@@ -56,12 +58,19 @@ function getResponse(req, res) {
             case '/mdsheet-cc':
                 return send(res, 200, renderMarkdown('md/_8_cloud-configuration.md'));
             case '/mdsheet-sec-ops':
-                return send(res, 200, renderMarkdown('md/_operation-to-security.md'));
+                return send(res, 200, renderMarkdown('md/3_operation-to-security.md'));
             case '/mdsheet-enc-comp':
-                return send(res, 200, renderMarkdown('md/_encryption-to-compliance.md'));
+                return send(res, 200, renderMarkdown('md/4_encryption-to-compliance.md'));
             case '/mdsheet-gloss':
-                return send(res, 200, renderMarkdown('md/_glossary-table.md'));
+                return send(res, 200, renderMarkdown('md/5_glossary-table.md'));
 
+            case '/cost':
+                return send(res, 200, fs.readFileSync(path.join(__dirname, 'public/cost.html'), 'utf8'));
+
+
+
+            case '/getcost':
+                return send(res, 200, renderMarkdown('md/6_cost.md'));
 
             case '/mdsheet-tail':
                 return send(res, 200, renderMarkdown('md/_tail-sections.md'));

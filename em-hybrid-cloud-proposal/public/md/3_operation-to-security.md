@@ -35,7 +35,7 @@ It is important to note that the current solution without added extras provide s
 
 On the local side security is provided with a firewall and network security, it is important that the server where the backups will be temporarily stored has anti-virus software that is run on a regular basis. In terms of network security it is important that the network is monitored by software for any breach or irregular activity and maintained on a regular basis.
 
-> **IMPORTANT NOTICE**: If Infinity Arc is not the service provider of network administration and maintenance liability cannot be accepted in this space for any breach in confidential information. But we will ensure that at the point of installation the local network is configured to provide the expected security.
+> **IMPORTANT NOTICE**: If Infinity Arc is not the service provider of network administration and maintenance liability cannot be accepted in this space for any breach in confidential information. But we will ensure that at the point of installation, the local network is configured to provide the expected security.
 
 ### Cloud security 
 

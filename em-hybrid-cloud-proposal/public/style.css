@@ -2,7 +2,7 @@ body {
     font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     box-sizing: border-box;
     /* padding: 20px 20px 60px; */
-    min-width: 100vh;
+    min-width: 80vw;
     display: grid;
     align-content: center;
     min-height: 100vh;

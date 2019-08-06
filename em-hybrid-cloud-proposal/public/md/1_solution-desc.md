@@ -26,9 +26,9 @@ The only 2 components that will most probably not be installed on your network a
 
 ![Onsite new resources](https://em-proposal-assets.now.sh/public/png/onsitenew-recources.png) {style="text-align:center"}
 
-The **AWS storage gateway** is as the the name suggest, the software service that must be installed in the office server, this is what will allow the local network to connect to the cloud network or virtual private network (next sections will elaborate more on this). 
+The **AWS storage gateway**, is as the the name suggest, the software service that must be installed in the office server. This component will allow the local network to connect to the cloud network or **virtual private cloud** (next sections will elaborate more on this). 
 
-The **encryption key** is the private encryption key that will be used to encrypt the data before sending it to the cloud backup storage. 
+The **encryption key** is the private encryption key that will be used to encrypt the data in preparation for sending it to the cloud backup storage. 
  
 
 

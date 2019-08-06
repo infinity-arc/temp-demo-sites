@@ -23,6 +23,40 @@
 </head>
 
 <body>
+    <style>
+        nav div {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            top: 2vh;
+            left: 1vw;
+            text-align: left;
+            z-index: 10000;
+        }
+        
+        .link-text {
+            font-size: 1em;
+            padding: 5px 20px 5px 20px;
+            background: transparent;
+            margin: 5px;
+            border: 2px solid black;
+            color: black;
+            border-radius: 8px;
+        }
+        
+        .link-text:hover {
+            background: black;
+            color: white;
+        }
+    </style>
+    <nav>
+        <!-- <h3>Home</h3> -->
+        <div>
+            <button id="desc" onclick="clickDesc()" class="link-text">Proposal description</button>
+            <button id="cost" onclick="clickCost()" class="link-text">Proposal cost</button>
+            <!-- <button class="link-text">link</button> -->
+        </div>
+    </nav>
     <heading class="heading">
         <h1 class="heading-1">EM Hybrid Cloud Architecture Proposal</h1>
         <!-- <img class="inline-img" src="https://general-cloud-branding.now.sh/images%20(2).png" alt="general-cloud-img"> -->
@@ -64,14 +98,14 @@
             <div class="content" id="content-part10"></div>
             <div class="content" id="content-part11"></div>
             <div class="content security-video">
-                <iframe width="100%" height="500px" src="https://www.youtube.com/embed/JfjLKBO27nw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- <iframe width="100%" height="500px" src="https://www.youtube.com/embed/JfjLKBO27nw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                 <p>Furthermore, you can also read <a href="https://d1.awsstatic.com/Security/pdfs/Formal_Reasoning_About_The_Security_of_Amazon_Web_Services.pdf">this document</a> by <a href="https://www.linkedin.com/in/byron-cook-8765205/">Byron Cook.</a></p>
                 <!-- <iframe src="https://www.infrastructure.aws/"></iframe> -->
             </div>
             <div class="content" id="content-part12"></div>
             <div id="aws-infra-iframs">
                 <h4>This is an interactive frame</h4>
-                <iframe class="aws-infra-region" width="100%" height="500px" src="https://www.infrastructure.aws/"></iframe>
+                <!-- <iframe class="aws-infra-region" width="100%" height="500px" src="https://www.infrastructure.aws/"></iframe> -->
                 <a style="text-align: center" href="https://www.infrastructure.aws/" target="_blank">View full screen</a>
             </div>
             <div class="content" id="content-part_"></div>
@@ -89,8 +123,7 @@
             </p>
         </div>
         <div>
-            <img src="https://ia-own-webassets.now.sh/IA_shortlogo_white_blackbg-025x.png" alt="infinity arc logo">
-
+            <!-- <img src="https://ia-own-webassets.now.sh/IA_shortlogo_white_blackbg-025x.png" alt="infinity arc logo"> -->
         </div>
     </footer>
     <script>
@@ -128,6 +161,15 @@
 
 
         // }
+
+
+        function clickDesc() {
+            return location.href = '/desc';
+        }
+
+        function clickCost() {
+            return location.href = '/cost';
+        }
 
         var contentPart1 = document.getElementById('content-part1');
         getMarkDown('/mdsheet-intro').then(html => contentPart1.innerHTML = html);
