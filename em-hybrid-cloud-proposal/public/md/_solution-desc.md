@@ -16,7 +16,7 @@ Merely a term that references a situation where any physical infrastructure or d
 
 ## The general layout
 
-As I am sure you have noticed that the left side is your office productivity network, the right side is the cloud environment which will also be covered in this document. And in the middle is the public transport layer that the data must traverse to get to reach the cloud, travelling on the public internet over [http](http) is how most web traffic is transported, in modern times where people in general are more aware of security, https has rather become the preferred manner of moving data around the web as this is a protocol that is asymmetrically encrypted with 2 security keys, a public and a private key and is exactly the method of transport that our solution will use. If you would like to know more on asymmetric encryption please see [this link](TODO:)
+As I am sure you have noticed that the left side is your office productivity network, the right side is the cloud environment which will also be covered in this document. And in the middle is the public transport layer that the data must traverse to get to reach the cloud, travelling on the public internet over [http](http) is how most web traffic is transported, in modern times where people in general are more aware of security, https has rather become the preferred manner of moving data around the web as this is a protocol that is asymmetrically encrypted with 2 security keys, a public and a private key and is exactly the method of transport that our solution will use. If you would like to know more on asymmetric encryption please see [this link](https://searchsecurity.techtarget.com/definition/asymmetric-cryptography)
 
 ## The components
 
