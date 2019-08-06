@@ -2,17 +2,13 @@
 
 ## Introduction
 
-The solution in the diagram above might seem like there is a lot going on. However; considering all of the on premise infrastructure already running. Looking at the architecture diagram above these are all the items in grey, these include the server, the external drive where backups reside at the moment as well as the firewall and internet gateway. Mostly all of the infrastructure items in the left. 
+The solution in the diagram above might seem like there is a lot going on. However; considering all of the on premise infrastructure already running. Looking at the architecture diagram above these are all the items in grey. They include among other, the server, the external drive where backups reside at the moment, as well as the firewall and internet gateway. Mostly these are the infrastructure items on the left.
 
->I hope I had made a fair assumption here, these are usually minimally the items at play in a normally operating business. Note I did not consider infrastructure that is irrelevant tot he requirement, unless there is something I am unaware of. 
-
-Also looking at the above it might seem like it could  end up costing you a fortune to implement and maintain. I assure you that the cloud is cheap as chips and it will not be as bad as you think. In contrast I must concede that I have not yet worked out a costing model for this, but I can also say that if it is going to be a bit pricey it will only cost that at implementation time.
-
-Then there is security, as this is always the first thing on that comes to mind when considering moving to a cloud solution, with paranoia you think that you are putting your privacy at risk. In reality this is the complete opposite. With a tech giant like AWS, your data will be more safe and secure than ever before and the only way your data could potentially fall into the hands of some troll or someone with real malicious intent is if there is negligence in failing to keep your cloud access credentials safeguarded. I can assure you that this is the case because this is what happened to me.
+>I hope I had made a fair assumption here, these are usually minimally, the items at play in the normal operation of business. Note I did not consider infrastructure that is irrelevant to the requirement, unless there is something I am unaware of. 
 
 ## What is a hybrid cloud?
 
-Merely a term that references a situation where any physical infrastructure or desktop software is integrated with cloud infrastructure or software. The technical term for cloud computing resources, meaning anything that will resemble a tangible part of any business network in the physical space, is usually referred to as HaaS (Hardware as a service) and when scaled up to a corporate level is known as IaaS (Infrastructure as a service). It is named like this , as a service, because it is not something you can acquire, you can only lease it. There is also Software as a Service and Plantform as a Service [](TODO:) 
+Merely a term that references a situation where any physical infrastructure or desktop software is integrated with cloud infrastructure or software. The technical term for cloud computing resources, meaning anything that will resemble a tangible part of any business network in the physical space, is usually referred to as HaaS (Hardware as a service) and when scaled up to a corporate level is known as IaaS (Infrastructure as a service). It is named like this , as a service, because it is not something you can acquire, you can only lease it. There is also Software as a Service and Plantform as a Service.
 
 ## The general layout
 
