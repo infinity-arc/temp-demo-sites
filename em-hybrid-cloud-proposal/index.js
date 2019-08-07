@@ -74,6 +74,8 @@ function getResponse(req, res) {
                 return send(res, 200, fs.readFileSync(path.join(__dirname, 'public', '_html-comp', 'table.html'), 'utf8'));
 
 
+            case '/style':
+                return send(res, 200, fs.readFileSync(path.join(__dirname, 'public', 'style.css'), 'utf8'));
 
             case '/getcost':
                 return send(res, 200, renderMarkdown('md/6_cost.md'));

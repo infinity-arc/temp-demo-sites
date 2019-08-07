@@ -3,6 +3,7 @@
 
 <head>
     <title>Proposal</title>
+
     <link id="styleLink" rel="stylesheet" href="https://em-proposal-assets.now.sh/public/style.css" />
     <link rel="icon" href="./favicon.ico" type="img/ico">
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Orbitron&display=swap" rel="stylesheet">
@@ -58,12 +59,18 @@
         </div>
     </nav>
     <h1>Em Hybrid Cloud Cost Estimation</h1>
-    <div class="content content-container">
-        <img src="https://em-proposal-assets.now.sh/public/diagram.svg" alt="Some alt" />
+    <div style="position: relative" class="content content-container">
+        <div style="position: relative; width: 100%;">
+            <!-- <img style="position: relative; min-width: 100%; height: auto" src="https://em-proposal-assets.now.sh/public/diagram.svg" alt="Some alt" /> -->
+        </div>
+
         <div id="content"></div>
         <div id="content-table">
 
         </div>
+    </div class="costing-caveats">
+    $0 for the first 62,000 emails you send each month, and $0.10 for every 1,000 emails you send after that. $0.10 for every 1,000 emails you send.
+    <div>
     </div>
     <script>
         function clickLink(param) {
@@ -73,6 +80,29 @@
                     window.history.back()
                 case 'cost':
                     location.href = '/cost';
+            }
+        }
+
+        function costOperation(currJson) {
+            console.log(currJson);
+            const ZAR = JSON.parse(currJson).rates.ZAR
+            console.log('ZAR: ', ZAR);
+            const valuesConvert = document.getElementsByClassName('val');
+            const rows = document.getElementsByTagName('tr');
+
+
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                console.log('row: ', row);
+                const cellToConv = valuesConvert[i];
+                console.log('cellToConv: ', cellToConv);
+
+                row.cells;
+                console.log('row.cells: ', row.cells);
+                row.insertCell().classList.add('converted-value');
+                row.cells[3].textContent = row.classList.contains('noconv') ?
+                    150 : Number(row.cells[2].textContent) * ZAR;
+
             }
         }
 
@@ -98,8 +128,7 @@
         var costTable = document.getElementById('content-table');
         get('/get-table').then(html => costTable.innerHTML = html);
 
-
-        get('https://api.exchangeratesapi.io/latest').then(curr => console.log(curr));
+        get('https://api.exchangeratesapi.io/latest').then(curr => costOperation(curr));
     </script>
 </body>
 
