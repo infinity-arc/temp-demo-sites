@@ -37,6 +37,8 @@ function getResponse(req, res) {
                 return send(res, 200, fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8'));
             case '/desc':
                 return send(res, 200, fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8'));
+
+
             case '/mdsheet-intro':
                 return send(res, 200, renderMarkdown('md/1_solution-desc.md'));
             case '/mdsheet-ccp1':
@@ -66,6 +68,10 @@ function getResponse(req, res) {
 
             case '/cost':
                 return send(res, 200, fs.readFileSync(path.join(__dirname, 'public/cost.html'), 'utf8'));
+
+
+            case '/get-table':
+                return send(res, 200, fs.readFileSync(path.join(__dirname, 'public', '_html-comp', 'table.html'), 'utf8'));
 
 
 

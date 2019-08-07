@@ -51,17 +51,20 @@
     </style>
     <nav>
         <!-- <h3>Home</h3> -->
-        <div>
+        <div class="container">
             <button id="desc" onclick="clickDesc()" class="link-text">Proposal description</button>
             <button id="cost" onclick="clickCost()" class="link-text">Proposal cost</button>
             <!-- <button class="link-text">link</button> -->
         </div>
     </nav>
     <h1>Em Hybrid Cloud Cost Estimation</h1>
-    <div id="content">
+    <div class="content content-container">
+        <img src="https://em-proposal-assets.now.sh/public/diagram.svg" alt="Some alt" />
+        <div id="content"></div>
+        <div id="content-table">
 
+        </div>
     </div>
-
     <script>
         function clickLink(param) {
             console.log('ev: ', param);
@@ -81,7 +84,7 @@
             return location.href = '/cost';
         }
 
-        function getMarkDown(route) {
+        function get(route) {
             return new Promise(async(resolve, reject) => {
                 console.log('Running fetch');
                 const response = await fetch(`${route}`).then(res => res.text()).catch(err => console.error(err));
@@ -90,7 +93,13 @@
         }
         var contentPart10 = document.getElementById('content');
         //contentPart10.classList.add('component-image');
-        getMarkDown('/getcost').then(html => contentPart10.innerHTML = html);
+        get('/getcost').then(html => contentPart10.innerHTML = html);
+
+        var costTable = document.getElementById('content-table');
+        get('/get-table').then(html => costTable.innerHTML = html);
+
+
+        get('https://api.exchangeratesapi.io/latest').then(curr => console.log(curr));
     </script>
 </body>
 
