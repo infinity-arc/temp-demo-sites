@@ -30,15 +30,14 @@ const handleGet = get(async(req, res) => {
 function getResponse(req, res) {
     seeRequestParams(seeReqPar, req);
     try {
-
         console.log('req.url: ', req.url);
         switch (req.url) {
             case '/':
                 return send(res, 200, fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8'));
+            case '/favicon':
+                return send(res, 200, fs.readFileSync(path.join(__dirname, 'public', 'favicon.ico'), 'utf8'));
             case '/desc':
                 return send(res, 200, fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8'));
-
-
             case '/mdsheet-intro':
                 return send(res, 200, renderMarkdown('md/1_solution-desc.md'));
             case '/mdsheet-ccp1':
@@ -65,21 +64,14 @@ function getResponse(req, res) {
                 return send(res, 200, renderMarkdown('md/4_encryption-to-compliance.md'));
             case '/mdsheet-gloss':
                 return send(res, 200, renderMarkdown('md/5_glossary-table.md'));
-
             case '/cost':
                 return send(res, 200, fs.readFileSync(path.join(__dirname, 'public/cost.html'), 'utf8'));
-
-
             case '/get-table':
                 return send(res, 200, fs.readFileSync(path.join(__dirname, 'public', '_html-comp', 'table.html'), 'utf8'));
-
-
             case '/style':
                 return send(res, 200, fs.readFileSync(path.join(__dirname, 'public', 'style.css'), 'utf8'));
-
             case '/getcost':
                 return send(res, 200, renderMarkdown('md/6_cost.md'));
-
             case '/mdsheet-tail':
                 return send(res, 200, renderMarkdown('md/_tail-sections.md'));
             case '/favicon.ico':

@@ -5,11 +5,11 @@
     <title>Proposal</title>
 
     <link id="styleLink" rel="stylesheet" href="https://em-proposal-assets.now.sh/public/style.css" />
-    <link rel="icon" href="./favicon.ico" type="img/ico">
+    <link rel="icon" href="/favicon" type="img/ico">
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Orbitron&display=swap" rel="stylesheet">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145179153-1"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145179153-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -19,7 +19,7 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-145179153-1');
-    </script>
+    </script> -->
 
 </head>
 
@@ -73,6 +73,8 @@
     <div>
     </div>
     <script>
+        var rows;
+
         function clickLink(param) {
             console.log('ev: ', param);
             switch (param) {
@@ -80,29 +82,6 @@
                     window.history.back()
                 case 'cost':
                     location.href = '/cost';
-            }
-        }
-
-        function costOperation(currJson) {
-            console.log(currJson);
-            const ZAR = JSON.parse(currJson).rates.ZAR
-            console.log('ZAR: ', ZAR);
-            const valuesConvert = document.getElementsByClassName('val');
-            const rows = document.getElementsByTagName('tr');
-
-
-            for (let i = 0; i < rows.length; i++) {
-                const row = rows[i];
-                console.log('row: ', row);
-                const cellToConv = valuesConvert[i];
-                console.log('cellToConv: ', cellToConv);
-
-                row.cells;
-                console.log('row.cells: ', row.cells);
-                row.insertCell().classList.add('converted-value');
-                row.cells[3].textContent = row.classList.contains('noconv') ?
-                    150 : Number(row.cells[2].textContent) * ZAR;
-
             }
         }
 
@@ -126,9 +105,65 @@
         get('/getcost').then(html => contentPart10.innerHTML = html);
 
         var costTable = document.getElementById('content-table');
-        get('/get-table').then(html => costTable.innerHTML = html);
+        get('/get-table').then(html => {
+            costTable.innerHTML = html;
+            get('https://api.exchangeratesapi.io/latest').then(async(curr) => {
+                const rows = await document.getElementsByTagName('tr');
+                const conFax = await JSON.parse(curr).rates.ZAR;
+                await assignNextRows(conFax, rows);
+            });
+        });
 
-        get('https://api.exchangeratesapi.io/latest').then(curr => costOperation(curr));
+
+
+        const unitCounts = [{
+            //cell: 'solcomp',
+
+        }]
+
+        function assignNextRows(conFac, rows) {
+            console.log('rows: ', rows);
+            console.log('conFac: ', conFac);
+            for (let i = 0; i < rows.length; i++) {
+                // console.log(rows[i]);
+                const thisRow = rows[i];
+                const cellToCheck = thisRow.children[2];
+                const cellToUpdate = thisRow.insertCell();
+                const unitCount = unitCounts[i]
+                const unitPriceInRand = Number(cellToCheck.innerText) * conFac; // unit price in dallors
+
+                console.log('thisRow: ', thisRow);
+                console.log('thisRow[2]: ', cellToCheck);
+            }
+
+        }
+
+
+
+        // console.log(currJson);
+        // console.log('ZAR: ', ZAR);
+        // console.log('valuesConvert: ', valuesConvert);
+        // console.log('rows: ', rows.item(3));
+
+
+        // for (let i = 0; i < rows.length; i++) {
+        //     let newCell;
+        //     const row = rows[i];
+        //     console.log('row: ', row);
+        //     const cellToConv = valuesConvert[i];
+        //     console.log('cellToConv: ', cellToConv);
+
+
+        //     console.log('row.cells: ', row.cells);
+        //     row.insertCell().classList.add('converted-value');
+        //     newCell = row.cells[3];
+        //     console.log('newCell: ', newCell);
+
+        //     //row.cells[3].textContent = row.cells[3].classList.includes('noconv') ? 150 : Number(row.cells[2].textContent) * ZAR;
+
+
+
+        // }
     </script>
 </body>
 
