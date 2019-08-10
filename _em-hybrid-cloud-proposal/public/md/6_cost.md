@@ -3,7 +3,7 @@
 ### Pricing model {style="text-align: left"}
 
 Monthly bills will be calculated on a **pay as you go** basis where you will only pay for what you have used.
-The price list below is broken down into 3 sections that stipulate the cost of resources.
+The price list below is broken down into 3 sections that stipulate the cost of resources. 
 
 #### Backing up of data {style="text-align: left"}
 

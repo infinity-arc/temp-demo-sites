@@ -2,9 +2,9 @@
 
 ## Introduction
 
-The solution in the diagram above might seem like there is a lot going on. However; considering all of the on premise infrastructure already running. Looking at the architecture diagram above these are all the items in grey. They include among other, the server, the external drive where backups reside at the moment, as well as the firewall and internet gateway. Mostly these are the infrastructure items on the left.
+This document describes the solution requested for cloud backup system. The system will be automated on a interval at which these backups occur has not restriction and can follow any schedule. The solution will scale as capacity requires.
 
->I hope I had made a fair assumption here, these are usually minimally, the items at play in the normal operation of business. Note I did not consider infrastructure that is irrelevant to the requirement, unless there is something I am unaware of. 
+> I hope I had made a fair assumption here, these are usually minimally, the items at play in the normal operation of business. Note I did not consider infrastructure that is irrelevant to the requirement, unless there is something I am unaware of.
 
 ## What is a hybrid cloud?
 
