@@ -1,26 +1,21 @@
 # COST
 
-## Items to be costed {text-align: left}
+### Pricing model {style="text-align: left"}
 
-1. AWS Storage gateway {style="text-align: left"}
-1. Data encryption key {style="text-align: left"}
-1. Virtual Private Network {style="text-align: left"}
-1. Virtual Private Network access point {style="text-align: left"}
-1. S3 Storage bucket service {style="text-align: left"}
-1. Management console access VIA IAM user {style="text-align: left"}
-1. Notification Service {style="text-align: left"}
-1. Identity managment service {style="text-align: left"}
-1. Provisioning the up the cloud {style="text-align: left"}
-1. Installing the solution up the local network {style="text-align: left"}
+Monthly bills will be calculated on a **pay as you go** basis where you will only pay for what you have used.
+The price list below is broken down into 3 sections that stipulate the cost of resources.
+
+#### Backing up of data {style="text-align: left"}
+
+* There will be no charge for data sent to the cloud, only charge will be per operation for data sent upstream.
+
+#### Data retrieval {style="text-align: left"}
+
+* Data retrieval will be charged as per the schedule.
+
+#### Notifications {style="text-align: left"}
+
+* Notifications are free of charged for the first 10 000 notifications generated afterward the charge will be as per the schedule for every 1000 notifications generated.
 
 
-AWS Storage gateway
-Data encryption key
-Virtual Private Network
-Virtual Private Network access point
-S3 Storage bucket service 
-Management console access VIA IAM user
-Notification Service
-Identity managment service
-Provisioning the up the cloud
-Installing the solution up the local network
+

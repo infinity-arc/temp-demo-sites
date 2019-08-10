@@ -14,9 +14,7 @@
 	],
 	"settings": {
 		"workbench.colorCustomizations": {
-			"activityBar.background": "#093519",
-			"titleBar.activeBackground": "#0C4A23",
-			"titleBar.activeForeground": "#F3FDF7"
+			"tab.unfocusedActiveBorder": "#fff0"
 		},
 		"cSpell.words": [
 			"onsitenew"
@@ -31,6 +29,10 @@
 			"editor.formatOnSave": true,
 			"editor.defaultFormatter": "TomasHubelbauer.vscode-markdown-table-format"
 			
-		}
+		},
+		"colorTabs.titleBackground": true,
+		"colorTabs.titleLabel": true,
+		"editor.tabCompletion": "onlySnippets",
+		"emmet.triggerExpansionOnTab": true
 	}
 }

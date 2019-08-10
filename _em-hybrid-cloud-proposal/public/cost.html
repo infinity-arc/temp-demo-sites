@@ -20,6 +20,8 @@
 
         gtag('config', 'UA-145179153-1');
     </script> -->
+    <script>
+    </script>
 
 </head>
 
@@ -49,6 +51,24 @@
             background: black;
             color: white;
         }
+        
+        .main-heading,
+        .heading {
+            font-style: oblique;
+            font-weight: bold;
+        }
+        
+        .sub-text {
+            font-weight: normal;
+        }
+        
+        .val {
+            text-align: right;
+        }
+        
+        .row {
+            padding: 0 40px;
+        }
     </style>
     <nav>
         <!-- <h3>Home</h3> -->
@@ -58,22 +78,32 @@
             <!-- <button class="link-text">link</button> -->
         </div>
     </nav>
-    <h1>Em Hybrid Cloud Cost Estimation</h1>
-    <div style="position: relative" class="content content-container">
+
+    <main style="position: relative" class="content content-container">
         <div style="position: relative; width: 100%;">
             <!-- <img style="position: relative; min-width: 100%; height: auto" src="https://em-proposal-assets.now.sh/public/diagram.svg" alt="Some alt" /> -->
         </div>
 
         <div id="content"></div>
-        <div id="content-table">
+        <div id="content-table"></div>
+    </main>
 
+    <footer>
+        <div>
+            <h2>INFINITY ARC</h2>
+            <h3>CREATIVE | QUALITY | SOLUTIONS</h3>
+            <h4>BUILD 4 CLOUD</h4>
+            <p>
+                info@infintyarc.net | www.infinityarc.net
+            </p>
         </div>
-    </div class="costing-caveats">
-    $0 for the first 62,000 emails you send each month, and $0.10 for every 1,000 emails you send after that. $0.10 for every 1,000 emails you send.
-    <div>
-    </div>
+        <div>
+            <!-- <img src="https://ia-own-webassets.now.sh/IA_shortlogo_white_blackbg-025x.png" alt="infinity arc logo"> -->
+        </div>
+    </footer>
     <script>
         var rows;
+        var markup = 50;
 
         function clickLink(param) {
             console.log('ev: ', param);
@@ -110,60 +140,123 @@
             get('https://api.exchangeratesapi.io/latest').then(async(curr) => {
                 const rows = await document.getElementsByTagName('tr');
                 const conFax = await JSON.parse(curr).rates.ZAR;
+                await changeHeadings();
                 await assignNextRows(conFax, rows);
             });
         });
 
-
-
-        const unitCounts = [{
-            //cell: 'solcomp',
-
+        const priceListData = [{
+            key: 'mh'
+        }, {
+            key: 'h_solutionComponent'
+        }, {
+            key: 'storeGate'
+        }, {
+            key: 'dataEnc'
+        }, {
+            key: 'vpc'
+        }, {
+            key: 'vpcAp'
+        }, {
+            key: 'mca'
+        }, {
+            key: 'ns'
+        }, {
+            key: 'ids'
+        }, {
+            key: 'prov'
+        }, {
+            key: 'inst'
+        }, {
+            key: 'maint'
+        }, {
+            key: 'h_storageCost'
+        }, {
+            key: 'data'
+        }, {
+            key: 'h_transportCost'
+        }, {
+            key: 'transIn'
+        }, {
+            key: 'opsIn'
+        }, {
+            key: 'transOut'
+        }, {
+            key: 'opsOut'
         }]
+
+        function changeHeadings() {
+            const headings = document.querySelectorAll('.heading');
+            const sections = ['Section A', 'Section B', 'Section C', 'Section D'];
+            return headings.forEach((heading, i) => {
+                const child = heading.children[0];
+                const initText = `<span class="sub-text">${child.innerText}</span>`;
+                return child.innerHTML = sections[i] + ': ' + initText;
+            });
+        }
 
         function assignNextRows(conFac, rows) {
             console.log('rows: ', rows);
             console.log('conFac: ', conFac);
             for (let i = 0; i < rows.length; i++) {
-                // console.log(rows[i]);
+
                 const thisRow = rows[i];
+                const cellTitle = thisRow.children[0];
+                const cellUnit = thisRow.children[1];
                 const cellToCheck = thisRow.children[2];
                 const cellToUpdate = thisRow.insertCell();
-                const unitCount = unitCounts[i]
-                const unitPriceInRand = Number(cellToCheck.innerText) * conFac; // unit price in dallors
+                const unitPriceInRand = Number(cellToCheck.innerText) * conFac;
+                // cellTitle.classList.add('list-item')
+                cellToUpdate.classList.add('val');
+                cellToCheck.style.display = 'none';
+                displayUnitPrice(cellToUpdate, i, unitPriceInRand);
 
-                console.log('thisRow: ', thisRow);
-                console.log('thisRow[2]: ', cellToCheck);
+                // console.log(priceListData[i].unit = cellUnit.innerText);
+                // console.log(priceListData[i].rowTitle = cellTitle.innerText);
+                // console.log(priceListData[i].companyCostOrig = Number(cellToCheck.innerText));
+                // console.log(priceListData[i].companyCostConverted = Number(cellToCheck.innerText) * conFac);
             }
-
+            return console.log('priceListData: ', priceListData);;
         }
 
+        function displayUnitPrice(cell, index, value) {
 
+            console.log('cell: ', cell);
+            console.log('index: ', index);
+            console.log('value: ', value);
 
-        // console.log(currJson);
-        // console.log('ZAR: ', ZAR);
-        // console.log('valuesConvert: ', valuesConvert);
-        // console.log('rows: ', rows.item(3));
-
-
-        // for (let i = 0; i < rows.length; i++) {
-        //     let newCell;
-        //     const row = rows[i];
-        //     console.log('row: ', row);
-        //     const cellToConv = valuesConvert[i];
-        //     console.log('cellToConv: ', cellToConv);
-
-
-        //     console.log('row.cells: ', row.cells);
-        //     row.insertCell().classList.add('converted-value');
-        //     newCell = row.cells[3];
-        //     console.log('newCell: ', newCell);
-
-        //     //row.cells[3].textContent = row.cells[3].classList.includes('noconv') ? 150 : Number(row.cells[2].textContent) * ZAR;
-
-
-
-        // }
+            switch (index) {
+                case 0:
+                    return cell.innerText = 'Service Unit Price';
+                default:
+                    defaultOperation(index);
+            }
+            // Default operations 
+            function defaultOperation(idx) {
+                const blankHeadings = [1, 12, 14];
+                const perHourHeadings = [9, 10, 11];
+                blankHeadings.includes(idx)
+                if (blankHeadings.includes(idx)) {
+                    return '';
+                } else if (perHourHeadings.includes(idx)) {
+                    return cell.innerHTML = format(100);
+                } else {
+                    return cell.innerHTML = format(value);
+                };
+                // Format values
+                function format(value) {
+                    return '<strong>' + (Number(priceMarkup(value)).toLocaleString('en-ZA', {
+                        style: 'currency',
+                        currency: 'ZAR'
+                    })) + '</strong>';
+                }
+            }
+        }
+        // price markup
+        function priceMarkup(value) {
+            const factor = (markup / 100);
+            return value + (value * factor);
+        }
     </script>
 </body>
 
