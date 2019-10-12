@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "alias": "em-proposal-assets",
+    "name": "em-proposal-assets",
+    "builds": [
+        { "src": "public/*.*", "use": "@now/static" }
+    ]
+}

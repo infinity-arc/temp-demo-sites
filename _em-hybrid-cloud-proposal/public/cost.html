@@ -3,7 +3,7 @@
 
 <head>
     <title>Proposal</title>
-    <link id="styleLink" rel="stylesheet" href="https://em-proposal-assets.now.sh/public/style.css" />
+    <link id="styleLink" rel="stylesheet" href="https://em-proposal-assets.c1i44.now.sh/public/style.css" />
     <link rel="icon" href="/favicon" type="img/ico">
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Orbitron&display=swap" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -18,20 +18,36 @@
 
         gtag('config', 'UA-145179153-1');
     </script>
+
     <script>
+        document.onloadend = function() {
+            console.log('######## Document load end');
+        }
     </script>
 </head>
 
 <body style="min-width: 80vw;">
     <style>
-        nav div {
+        body {
+            padding-top: 100px;
+        }
+        
+        nav {
+            background: rgb(16, 16, 31);
             position: fixed;
+            width: 100vw;
+            top: 0;
+            padding: 2vh;
+            margin: 0;
+            z-index: 10000;
+        }
+        
+        nav div {
+            position: relative;
             display: flex;
-            flex-direction: column;
-            top: 2vh;
+            flex-direction: row wrap;
             left: 1vw;
             text-align: left;
-            z-index: 10000;
         }
         
         .link-text {
@@ -39,14 +55,14 @@
             padding: 5px 20px 5px 20px;
             background: transparent;
             margin: 5px;
-            border: 2px solid black;
-            color: black;
+            border: 2px solid white;
+            color: white;
             border-radius: 8px;
         }
         
         .link-text:hover {
-            background: black;
-            color: white;
+            background: white;
+            color: black;
         }
         
         .main-heading,
@@ -69,7 +85,7 @@
     </style>
     <nav>
         <!-- <h3>Home</h3> -->
-        <div class="container">
+        <div class="navbar-inner">
             <button id="desc" onclick="clickDesc()" class="link-text">Proposal description</button>
             <button id="cost" onclick="clickCost()" class="link-text">Proposal cost</button>
             <!-- <button class="link-text">link</button> -->
@@ -78,7 +94,7 @@
 
     <main style="position: relative" class="content content-container">
         <div style="position: relative; width: 100%;">
-            <!-- <img style="position: relative; min-width: 100%; height: auto" src="https://em-proposal-assets.now.sh/public/diagram.svg" alt="Some alt" /> -->
+            <!-- <img style="position: relative; min-width: 100%; height: auto" src="https://em-proposal-assets.c1i44.now.sh/public/diagram.svg" alt="Some alt" /> -->
         </div>
 
         <div id="content"></div>
@@ -193,8 +209,8 @@
         }
 
         function assignNextRows(conFac, rows) {
-            console.log('rows: ', rows);
-            console.log('conFac: ', conFac);
+            // console.log('rows: ', rows);
+            // console.log('conFac: ', conFac);
             for (let i = 0; i < rows.length; i++) {
 
                 const thisRow = rows[i];

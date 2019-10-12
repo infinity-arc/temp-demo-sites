@@ -3,7 +3,7 @@
 
 <head>
     <title>Proposal</title>
-    <link id="styleLink" rel="stylesheet" href="https://em-proposal-assets.now.sh/public/style.css" />
+    <link id="styleLink" rel="stylesheet" href="https://em-proposal-assets.c1i44.now.sh/public/style.css" />
     <link rel="icon" href="https://ia-own-webassets.c1i44.now.sh/IA_shortlogo_black_nobg_small.png" type="img/png">
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Orbitron&display=swap" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -17,18 +17,35 @@
         gtag('js', new Date());
         gtag('config', 'UA-145179153-1');
     </script>
+    <script>
+        window.onload = function() {
+            console.log('!!!!! Document load end');
+        }
+    </script>
 </head>
 
 <body>
     <style>
-        nav div {
+        body {
+            padding-top: 100px;
+        }
+        
+        nav {
+            background: rgb(16, 16, 31);
             position: fixed;
+            width: 100vw;
+            top: 0;
+            padding: 2vh;
+            margin: 0;
+            z-index: 10000;
+        }
+        
+        nav div {
+            position: relative;
             display: flex;
-            flex-direction: column;
-            top: 2vh;
+            flex-direction: row wrap;
             left: 1vw;
             text-align: left;
-            z-index: 10000;
         }
         
         blockquote {
@@ -40,14 +57,14 @@
             padding: 5px 20px 5px 20px;
             background: transparent;
             margin: 5px;
-            border: 2px solid black;
-            color: black;
+            border: 2px solid white;
+            color: white;
             border-radius: 8px;
         }
         
         .link-text:hover {
-            background: black;
-            color: white;
+            background: white;
+            color: black;
         }
     </style>
     <nav>
@@ -93,7 +110,7 @@
         </div>
 
         <div>
-            <img id="svgDiagram" src="https://em-proposal-assets.now.sh/public/Em-backups.svg" alt="graph" />
+            <img id="svgDiagram" src="https://em-proposal-assets.c1i44.now.sh/public/Em-backups.svg" alt="graph" />
         </div>
         <div class="content content-container">
             <div class="content" id="content-part1"></div>
@@ -154,10 +171,10 @@
 
         function getMarkDown(route) {
             return new Promise(async(resolve, reject) => {
-                console.log('Running fetch');
+                // console.log('Running fetch');
 
                 const or = mode === 'dev' ? 'http://172.16.0.151:3000' : origin;
-                console.log(`${or}${route}`);
+                // console.log(`${or}${route}`);
                 const response = await fetch(`${or}${route}`).then(res => res.text()).catch(err => console.error(err));
                 return resolve(response);
             });
