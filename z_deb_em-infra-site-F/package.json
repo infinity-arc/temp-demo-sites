@@ -15,7 +15,7 @@
         "markdown-loader": "^5.1.0",
         "rehype-stringify": "^6.0.0",
         "remark-attr": "^0.8.3",
-        "remark-parse": "^7.0.0",
+        "remark-parse": "^9.0.0",
         "remark-rehype": "^5.0.0",
         "unified": "^8.3.2",
         "webpack-dev-server": "^3.7.2"
