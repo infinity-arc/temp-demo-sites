@@ -12,7 +12,7 @@
     "author": "Cliff Crerar",
     "license": "ISC",
     "dependencies": {
-        "markdown-loader": "^5.1.0",
+        "markdown-loader": "^7.0.0",
         "rehype-stringify": "^6.0.0",
         "remark-attr": "^0.8.3",
         "remark-parse": "^9.0.0",
