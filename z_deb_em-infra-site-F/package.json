@@ -37,4 +37,5 @@
     "webpack-manifest-plugin": "^2.0.4"
   },
   "snyk": true
+
 }
